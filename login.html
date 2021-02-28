@@ -27,10 +27,11 @@
             </div>
             <div class="layui-form-item pws">
                 <i class="layui-icon layui-icon-password m"></i>
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                <input type="password" name="password" required lay-verify="required|pass" placeholder="请输入密码"
                     autocomplete="off" class="layui-input" id="ipt">
             </div>
-            <button type="button" class="layui-btn layui-btn-fluid" id="btn">登录</button>
+            <!-- <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit>登录</button> -->
+            <button type="button" class="layui-btn layui-btn-fluid" id="btn" lay-submit>登录</button>
             <div class="layui-form-item links">
                 <a href="javascript:;" id="link_reg" class="fr">去注册账号</a>
             </div>
@@ -48,14 +49,14 @@
         </div>
         <div class="layui-form-item pws">
             <i class="layui-icon layui-icon-password m"></i>
-            <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+            <input type="password" name="password" required lay-verify="required|pass" placeholder="请输入密码"
                 autocomplete="off" class="layui-input" id="ipt">
         </div>
        
      
           <div class="layui-form-item pws">
             <i class="layui-icon layui-icon-password zm"></i>
-            <input type="password" name="repassword" required lay-verify="required" placeholder="再次确认密码" autocomplete="off" class="layui-input" id="ipt"/>
+            <input type="password" name="repassword" required lay-verify="required|pass" placeholder="再次确认密码" autocomplete="off" class="layui-input" id="ipt"/>
           </div>
           <!-- 注册按钮 -->
           <div class="layui-form-item">
@@ -70,6 +71,7 @@
 
 
     </div>
+    <script src="./assets/lib/layui/layui.all.js"></script>
 </body>
 
 </html>
