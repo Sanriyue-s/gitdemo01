@@ -33,7 +33,7 @@ $(function(){
             username:$('.reg-box [name = title]').val(),
             password:$('.reg-box [name = password]').val()
         }
-        $.post("http://ajax.frontend.itheima.net/api/reguser", data,
+        $.post("/api/reguser", data,
             function (res) {
                 if(res.status !== 0){
                     return layui.layer.msg(res.message);
@@ -49,12 +49,12 @@ $(function(){
     //登录事件
     $('#denglu').submit(function(e){
         e.preventDefault();
-        console.log(2222);
+        // console.log(2222);
         var data = {
             username:$('.form [name = title]').val(),
             password:$('.form [name = password]').val()
         }
-        $.post("http://ajax.frontend.itheima.net/api/login", data,
+        $.post("/api/login", data,
             function (res) {
                 if(res.status !== 0){
                   return  layui.layer.msg(res.message);

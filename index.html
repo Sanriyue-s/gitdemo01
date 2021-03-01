@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>layout 后台大布局 - Layui</title>
+    <!-- 导入layui的css -->
     <link rel="stylesheet" href="./assets/lib/layui/css/layui.css">
-    <link rel="stylesheet" href="./index.css">
+    <!-- 导入自己的css -->
+    <link rel="stylesheet" href="/assets/css/index.css">
     <!-- 导入第三方图标 -->
     <link rel="stylesheet" href="./assets/fonts/iconfont.css">
 </head>
@@ -33,7 +35,7 @@
                     </dl>
                 </li>
                 
-                <li class="layui-nav-item"><a href=""><span class="iconfont icon-tuichu"></span>退出</a></li>
+                <li class="layui-nav-item"><a href="javascript:;" id="tuichu"><span class="iconfont icon-tuichu"></span>退出</a></li>
             </ul>
         </div>
 
@@ -65,9 +67,9 @@
                         
                         <a href="javascript:;"><span class="iconfont icon-user"></span>个人中心</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>基本资料</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>更换头像</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>重置密码</a></dd>
+                            <dd><a href="/uers.html/基本资料.html" target="fm"><i class="layui-icon layui-icon-app"></i>基本资料</a></dd>
+                            <dd><a href="/uers.html/更换头像.html" target="fm"><i class="layui-icon layui-icon-app"></i>更换头像</a></dd>
+                            <dd><a href="/uers.html/重置密码.html"  target="fm"><i class="layui-icon layui-icon-app"></i>重置密码</a></dd>
                         </dl>
                     </li>
                 </ul>
@@ -85,13 +87,12 @@
         </div>
     </div>
     <script src="./assets/lib/layui/layui.all.js"></script>
-    <script>
-        //JavaScript代码区域
-        layui.use('element', function () {
-            var element = layui.element;
-
-        });
-    </script>
+    <!-- 导入jquery -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- 导入ajax拼接 -->
+    <script src="/assets/js/xmlAps.js"></script>
+    <!-- 导入自己的js -->
+    <script src="/assets/js/index.js"></script>
 </body>
 
 </html>
