@@ -42,7 +42,7 @@ function xuanran(ues){
     //判断头像有没有图片
     if(ues.user_pic !== null){
         $('.text-avatar').hide()
-        $('.layui-nav-img').show()
+        $('.layui-nav-img').attr('src',ues.user_pic).show()
     }else{
         $('.layui-nav-img').hide()
         //把用户名的第一个字符传入
