@@ -30,7 +30,7 @@ $(function(){
     $('#zhuche').submit(function(e){
         e.preventDefault();
         var data = {
-            username:$('.reg-box [name = title]').val(),
+            username:$('.reg-box [name = username]').val(),
             password:$('.reg-box [name = password]').val()
         }
         $.post("/api/reguser", data,
@@ -51,7 +51,7 @@ $(function(){
         e.preventDefault();
         // console.log(2222);
         var data = {
-            username:$('.form [name = title]').val(),
+            username:$('.form [name = username]').val(),
             password:$('.form [name = password]').val()
         }
         $.post("/api/login", data,

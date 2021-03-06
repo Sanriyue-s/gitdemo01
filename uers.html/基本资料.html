@@ -15,17 +15,46 @@
 
 <body>
     <div class="layui-card">
-        <div class="layui-card-header">卡片面板</div>
+        <div class="layui-card-header">修改用户信息</div>
         <div class="layui-card-body">
-            卡片式面板面板通常用于非白色背景色的主体内<br>
-            从而映衬出边框投影
+            <form class="layui-form" id="uersinfo" lay-filter="formUserInfo">
+                <input type="hidden" name="id" value="" >
+                <div class="layui-form-item">
+                    <label class="layui-form-label">登录名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" required lay-verify="required" placeholder="请输入名称"
+                            autocomplete="off" class="layui-input" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户昵称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="nickname" required lay-verify="required|pass" placeholder="请输入昵称"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户邮箱</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="email" required lay-verify="required|email" placeholder="请输入邮箱"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary" id="cz">重置</button>
+                  </div>
+            </form>
         </div>
     </div>
     <!-- 导入layui的js -->
     <script src="/assets/lib/layui/layui.all.js"></script>
     <!--导入jquery  -->
     <script src="/assets/lib/jquery.js"></script>
+    <!-- 导入拼接url -->
+    <script src="/assets/js/xmlAps.js"></script>
     <!-- 导入自己的js -->
+    <script src="/assets/js/uers01.js"></script>
 </body>
 
 </html>
