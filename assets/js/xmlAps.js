@@ -1,6 +1,8 @@
 $.ajaxPrefilter(function (options) {
     // 在发起真正的 Ajax 请求之前，统一拼接请求的根路径
-    options.url = 'http://ajax.frontend.itheima.net' + options.url
+    //http://www.escook.cn:8086/
+    //http://ajax.frontend.itheima.net
+    options.url = 'http://127.0.0.1' + options.url
 
     //为所有权限的接口添加
     if (options.url.indexOf('/my/') !== -1) {

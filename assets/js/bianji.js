@@ -1,23 +1,30 @@
 $(function () {
     var Id = localStorage.getItem('id')
     var form = layui.form
-    $.ajax({
-        type: "get",
-        url: "/my/article/" + Id,
-        success: function (res) {
-            console.log(res);
-            if(res.status !== 0){
-                layui.layer.msg('获取失败');
+    
+    function getimg() {
+        $.ajax({
+            type: "get",
+            url: "/my/article/" + Id,
+            success: function (res) {
+             
+                if (res.status !== 0) {
+                    layui.layer.msg('获取失败');
+                }
+                
+                $('#image')
+                    .cropper('destroy')      // 销毁旧的裁剪区域
+                    .attr('src', `http://127.0.0.1${res.data.cover_img}`)  // 重新设置图片路径
+                    .cropper(options)  // 重新初始化裁剪区域
+                    form.val('formlist', res.data)
             }
-            form.val('formlist',res.data)
-            
-        }
-    });
+        });
+    }
     //渲染文章类别
     listXuanran()
     //富文本
     initEditor()
-   
+
     function listXuanran() {
 
         $.ajax({
@@ -30,6 +37,7 @@ $(function () {
                 var a = template('classList', res)
                 $('[name = cate_id]').html(a)
                 form.render()
+                getimg()
             }
         });
 
@@ -51,7 +59,6 @@ $(function () {
     $('#btn-yl').on('click', function (e) {
         e.preventDefault();
         $('#ipt').click()
-
     })
     $('#ipt').on('change', function (e) {
         var files = e.target.files
@@ -68,7 +75,7 @@ $(function () {
 
     })
     //上传区域
-    
+
     var tast = '已发布'
     $('#btn-cg').on('click', function () {
         tast = '草稿'
@@ -78,7 +85,7 @@ $(function () {
         var fd = new FormData($(this)[0])
         // console.log(fd);
         fd.append('state', tast)//状态
-        fd.append('Id',Id)
+        fd.append('Id', Id)
 
         var dataURL = $image
             .cropper('getCroppedCanvas', { // 创建一个 Canvas 画布
@@ -89,16 +96,16 @@ $(function () {
                 // 将 Canvas 画布上的内容，转化为文件对象
                 // 得到文件对象后，进行后续的操作
                 // 5. 将文件对象，存储到 fd 中
-                fd.append('cover_img',  blob)
+                fd.append('cover_img', blob)
                 // console.log(blob);
-                console.log(fd);
-               
+                // console.log(fd);
+
                 // 6. 发起 ajax 数据请求
                 publishArticle(fd)
             })
     })
     //发送ajax请求
-    
+
     function publishArticle(fd) {
         $.ajax({
             type: "POST",

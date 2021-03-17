@@ -89,6 +89,7 @@ $(function () {
                 type: "get",
                 url: "/my/article/delete/" + id,
                 success: function (res) {
+                    
                     if(res.status !== 0){
                         layui.layer.msg('删除失败');
                     }
